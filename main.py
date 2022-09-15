@@ -1,23 +1,17 @@
 mport discord
 from discord.ext import commands
 
-
 from pistonapi import PistonAPI
-
 
 token = "token lalalalala"
 
-bot = commands.Bot(command_prefix=".", status=discord.Status.idle)
+bot = commands.Bot(command_prefix=".", status=discord.Status.idle, intents = discord.Intents.all())
 
 piston = PistonAPI()
-
-
 
 @bot.event
 async def on_ready():
   print(f"{bot.user} is Online.")
-
-
 
 @bot.command()
 async def run(ctx,n,*,code):
@@ -71,8 +65,4 @@ async def run(ctx,n,*,code):
 
   await ctx.send(embed=em)
 
-
-
-
 bot.run(token)
-   
